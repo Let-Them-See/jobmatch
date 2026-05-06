@@ -199,19 +199,35 @@ Or you can register a new account from the **Register** page.
 |--------|--------------------|--------------------------|:---:|
 | GET    | `/`               | Get profile & performance | ✅ |
 | PUT    | `/`               | Update name & skills      | ✅ |
-| POST   | `/upload-resume`  | Upload resume file        | ✅ |
+| POST   | `/upload-resume`  | Save resume metadata      | ✅ |
 
 ---
 
 ## 🔧 Environment Variables
 
-The backend uses a `.env` file (`backend/.env`):
+The local backend uses a `.env` file (`backend/.env`):
 
 ```env
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/jobmatch
 JWT_SECRET=jobmatch_secret_key
 ```
+
+For Vercel deployment, set the same `MONGO_URI` and `JWT_SECRET` values in the Vercel project settings. The frontend uses `/api` automatically in production, so no extra client env variable is required unless you want to override it with `VITE_API_URL`.
+
+---
+
+## 🚀 Vercel Deployment
+
+1. Import the GitHub repository into Vercel.
+2. Use the root project directory.
+3. Keep the build command as `npm run build`.
+4. Set these environment variables in Vercel:
+    - `MONGO_URI`
+    - `JWT_SECRET`
+5. Deploy.
+
+The project uses a single catch-all serverless API in `api/[...path].js` and a static Vite frontend in `frontend/dist`, so the same deployment serves both the UI and the API.
 
 ---
 

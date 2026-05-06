@@ -34,18 +34,14 @@ export default function UploadResume() {
     setUploading(true);
     setUploadProgress(0);
 
-    const formData = new FormData();
-    formData.append('resume', file);
-
     try {
-      const res = await API.post('/profile/upload-resume', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-        onUploadProgress: (progressEvent) => {
-          const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-          setUploadProgress(percent);
-        }
+      const res = await API.post('/profile/upload-resume', {
+        resumeName: file.name,
+        resumeSize: file.size,
+        resumeType: file.type
       });
 
+      setUploadProgress(100);
       setUploadedFile({ name: file.name, size: file.size });
       if (res.data.user) {
         updateUser(res.data.user);
