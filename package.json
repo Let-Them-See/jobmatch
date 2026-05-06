@@ -1,0 +1,23 @@
+{
+  "name": "jobmatch",
+  "version": "1.0.0",
+  "description": "Job matching platform",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm run build",
+    "dev": "concurrently \"cd backend && npm start\" \"cd frontend && npm run dev\"",
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.1",
+    "multer": "^2.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}

@@ -2,6 +2,8 @@
 
 A full-stack MERN (MongoDB, Express.js, React, Node.js) web application for job matching and career performance tracking. JobMatch uses AI-powered matching to connect your skills, interests, and performance to the best career opportunities.
 
+**🚀 Ready for Vercel Deployment** — This project is configured for easy deployment to Vercel with serverless API functions.
+
 ---
 
 ## 🚀 Features
